@@ -61,7 +61,7 @@ class Sikap extends CI_Controller{
         {
             $this->load->library('form_validation');
 
-			$this->form_validation->set_rules('name','Name','required|integer');
+			$this->form_validation->set_rules('name','Name','required');
 			$this->form_validation->set_rules('bobot','Bobot','required|max_length[50]');
 
 			if($this->form_validation->run())

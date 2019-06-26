@@ -75,7 +75,7 @@ class User_admin extends CI_Controller{
 			if($this->form_validation->run())
             {
                 $params = array(
-					'password' => $this->input->post('password'),
+					'password' => md5($this->input->post('password')),
 					'username' => $this->input->post('username'),
                 );
 
