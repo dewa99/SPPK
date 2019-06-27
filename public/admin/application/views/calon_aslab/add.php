@@ -8,7 +8,7 @@
           	<div class="box-body">
           		<div class="row clearfix">
 					<div class="col-md-6">
-						<label for="nilai_algo1" class="control-label">Nilai</label>
+						<label for="nilai_algo1" class="control-label">Nilai Algo 1</label>
 						<div class="form-group">
 							<select name="nilai_algo1" class="form-control">
 								<option value="">select nilai</option>
@@ -25,7 +25,7 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="nilai_algo2" class="control-label">Nilai</label>
+						<label for="nilai_algo2" class="control-label">Nilai Algo 2</label>
 						<div class="form-group">
 							<select name="nilai_algo2" class="form-control">
 								<option value="">select nilai</option>
@@ -42,7 +42,7 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="nilai_pbo1" class="control-label">Nilai</label>
+						<label for="nilai_pbo1" class="control-label">Nilai PBO 1</label>
 						<div class="form-group">
 							<select name="nilai_pbo1" class="form-control">
 								<option value="">select nilai</option>
@@ -59,7 +59,7 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="nilai_pbo2" class="control-label">Nilai</label>
+						<label for="nilai_pbo2" class="control-label">Nilai PBO 2</label>
 						<div class="form-group">
 							<select name="nilai_pbo2" class="form-control">
 								<option value="">select nilai</option>
@@ -76,7 +76,7 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="nilai_perweb" class="control-label">Nilai</label>
+						<label for="nilai_perweb" class="control-label">Nilai Perancangan Website</label>
 						<div class="form-group">
 							<select name="nilai_perweb" class="form-control">
 								<option value="">select nilai</option>
@@ -93,7 +93,7 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="nilai_pemweb" class="control-label">Nilai</label>
+						<label for="nilai_pemweb" class="control-label">Nilai Pemrograman Website</label>
 						<div class="form-group">
 							<select name="nilai_pemweb" class="form-control">
 								<option value="">select nilai</option>
