@@ -93,19 +93,7 @@
                                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             </a>
                         </li>
-						<li>
-                            <a href="#">
-                                <i class="fa fa-balance-scale"></i> <span>Alasan</span>
-                            </a>
-                            <ul class="treeview-menu">
-								<li class="active">
-                                    <a href="<?php echo site_url('alasan/add');?>"><i class="fa fa-plus"></i> Add</a>
-                                </li>
-								<li>
-                                    <a href="<?php echo site_url('alasan/index');?>"><i class="fa fa-list-ul"></i> Listing</a>
-                                </li>
-							</ul>
-                        </li>
+						
 						<li>
                             <a href="#">
                                 <i class="fa fa-address-book"></i> <span>Calon Aslab</span>
@@ -120,8 +108,14 @@
 							</ul>
                         </li>
 						<li>
+                            <a href="<?= site_url('admin/perhitungan') ?>">
+                                <i class="fa fa-square-root-alt"></i> <span>Hitung Keputusan</span>
+                            </a>
+                        </li>
+                        
+						<li>
                             <a href="#">
-                                <i class="fa fa-bandcamp"></i> <span>Jurusan</span>
+                                <i class="fa fa-university"></i> <span>Jurusan</span>
                             </a>
                             <ul class="treeview-menu">
 								<li class="active">
@@ -134,7 +128,7 @@
                         </li>
 						<li>
                             <a href="#">
-                                <i class="fa fa-address-card-o"></i> <span>Nilai</span>
+                                <i class="fa fa-star"></i> <span>Nilai</span>
                             </a>
                             <ul class="treeview-menu">
 								<li class="active">
@@ -147,7 +141,20 @@
                         </li>
 						<li>
                             <a href="#">
-                                <i class="fa fa-drivers-license-o"></i> <span>Sikap</span>
+                                <i class="fa fa-balance-scale"></i> <span>Alasan</span>
+                            </a>
+                            <ul class="treeview-menu">
+								<li class="active">
+                                    <a href="<?php echo site_url('alasan/add');?>"><i class="fa fa-plus"></i> Add</a>
+                                </li>
+								<li>
+                                    <a href="<?php echo site_url('alasan/index');?>"><i class="fa fa-list-ul"></i> Listing</a>
+                                </li>
+							</ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-smile"></i> <span>Sikap</span>
                             </a>
                             <ul class="treeview-menu">
 								<li class="active">
