@@ -96,6 +96,7 @@ class Pemro extends Controller
         
         $a = Session::get('login')->id;
         DB::table('calon_aslab')->where('id',$a)->update($data);
+        Session::get('login')->ipk = $ipk;
 
         return redirect('/');
     }

@@ -3,7 +3,6 @@
 <head>
 <title>Register</title>
 @include('head')
-@dd(Session::get('login'))
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script type="text/javascript">
         $(document).ready(function() {
@@ -43,10 +42,9 @@
       <div class="shop_top">
 	     <div class="container">
 	     				@if(Session::get('login'))
-	     					<h3>{{Session::get('login')->ipk}}</h3>
 	     					@if(Session::get('login')->ipk)
 	     						<h3>Data anda telah masuk tunggu kabar selanjutnya ya</h3>
-	     					@endif
+	     					
 	     				@else
 						<form action="/daftaraslab" method="post" enctype="multipart/form-data">
 							@csrf
@@ -175,6 +173,7 @@
 								<div class="clear"> </div>
 								<input type="submit" value="submit">
 						</form>
+						@endif
 						@endif
 					</div>
 		   </div>
