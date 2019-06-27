@@ -8,6 +8,10 @@ class Nilai extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+        if(!$this->session->userdata('mimin_is_login')){
+            redirect('auth/signin');
+            die();
+        }
         $this->load->model('Nilai_model');
     } 
 
