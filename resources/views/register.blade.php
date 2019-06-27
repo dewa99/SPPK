@@ -3,6 +3,8 @@
 <head>
 <title>Register</title>
 @include('head')
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script type="text/javascript">
         $(document).ready(function() {
@@ -41,25 +43,81 @@
      <div class="main">
       <div class="shop_top">
 	     <div class="container">
-						<form> 
+						<form action="/daftar" method="post">
+							@csrf
 								<div class="register-top-grid">
-										<h3>PERSONAL INFORMATION</h3>
+										<h3>Data Personal</h3>
 										<div>
-											<span>First Name<label>*</label></span>
-											<input type="text"> 
+											<span>Nama Lengkap<label>*</label></span>
+											<input type="text" name="namalengkap"> 
 										</div>
 										<div>
-											<span>Last Name<label>*</label></span>
-											<input type="text"> 
+											<span>NIM<label>*</label></span>
+											<input type="text" name="nim"> 
 										</div>
 										<div>
 											<span>Email Address<label>*</label></span>
-											<input type="text"> 
+											<input type="text" name="email"> 
 										</div>
+										<div>
+											<span>Tempat Lahir<label>*</label></span>
+											<input type="text" name="tempatlahir"> 
+										</div>
+										<div>
+											<span>Alamat<label>*</label></span>
+											<input type="text" name="alamat"> 
+										</div>
+										<div>
+											<span>no HP<label>*</label></span>
+											<input type="text" name="hp"> 
+										</div>
+										<div>
+											<span>Prodi<label>*</label></span>
+											<ul class="prosuct-qty">
+												<select name="prodi">
+													<option>Sistem Informasi</option>
+													<option>Teknologi Informasi</option>
+													<option>Informatika</option>
+												</select><br>
+											</ul>
+										</div>
+										<div>
+											<span>Semester<label>*</label></span>
+											<ul class="prosuct-qty">
+												<select name="semester">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+												</select><br>
+											</ul>
+										</div>
+										<div>
+											<span>Jenis Kelamin<label>*</label></span>
+											<ul class="prosuct-qty">
+												<select name="jeniskelamin">
+													<option>L</option>
+													<option>P</option>
+												</select><br>
+											</ul>
+										</div>
+
+										<div>
+											<span>Tanggal Lahir</span>
+										<input id="datepicker" width="276" name="ttl" name="ttl" />
+										    <script>
+										        $('#datepicker').datepicker({
+										        	format: 'yyyy-mm-dd',
+										            uiLibrary: 'bootstrap3'
+										        });
+										    </script>
+										</div>
+
 										<div class="clear"> </div>
-											<a class="news-letter" href="#">
-												<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
-											</a>
 										<div class="clear"> </div>
 								</div>
 								<div class="clear"> </div>
@@ -67,11 +125,11 @@
 										<h3>LOGIN INFORMATION</h3>
 										<div>
 											<span>Password<label>*</label></span>
-											<input type="text">
+											<input type="text" name="password">
 										</div>
 										<div>
 											<span>Confirm Password<label>*</label></span>
-											<input type="text">
+											<input type="text" name="konfirmpassword">
 										</div>
 										<div class="clear"> </div>
 								</div>
