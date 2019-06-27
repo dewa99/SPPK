@@ -14,6 +14,9 @@ class Perhitungan extends CI_Controller {
 
         $nilai_utility = array();
         foreach ($bobot['data'] as $row) {
+            if ($row['ipk'] == null) {
+                continue;
+            }
             $row_new = array();
             $row_new['nama_lengkap'] = $row['nama_lengkap'];
             for ($i=1; $i < sizeof($row) ; $i++) { 
