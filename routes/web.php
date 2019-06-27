@@ -24,16 +24,10 @@ Route::get('/register', function () {
 });
 
 Route::get('/aslab', function () {
-	if(Session::get('login')){
-			return view('daftaraslab');
-	}
-	else{
-	$nilai=DB::table('nilai')->select('name')->get();
-	$jurusan=DB::table('jurusan')->select('name')->get();
-	$alasan=DB::table('alasan')->select('name')->get();
+	$nilai=DB::table('nilai')->get();
+	$jurusan=DB::table('jurusan')->get();
+	$alasan=DB::table('alasan')->get();
     return view('daftaraslab')->with('nilai',$nilai)->with('jurusan',$jurusan)->with('alasan',$alasan);
-}
-
 });
 
 

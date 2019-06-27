@@ -75,12 +75,7 @@ class Pemro extends Controller
         $motivasi = $req->input('motivasi');
         $motto = $req->input('motto');
 
-        $data = array('ipk'=>$ipk,'nilai_algo1'=>$algo1,'nilai_algo2'=>$algo2,'nilai_pbo1'=>$pbo1,'nilai_pbo2'=>$pbo2,'nilai_perweb'=>$web1,'nilai_pemweb'=>$web2,'motivasi'=>$motivasi,'motto'=>$motto);
 
-        if(Session::get('login')->ipk){
-            echo '<script>alert("anda sudah pernah mengajukan")</script>';
-        }else{
-        DB::table('calon_aslab')->insert($data)->where('id',Session::get('login')->id);
 
         $ipkimg = time().'.'.'ipk.'.$req->file('ipkimg')->getClientOriginalExtension();
         $req->file('ipkimg')->move(public_path('images/bukti'), $ipkimg);
@@ -96,7 +91,13 @@ class Pemro extends Controller
         $req->file('web1img')->move(public_path('images/bukti'), $web1img);
         $web2img = time().'.'.'web2.'.$req->file('ipkimg')->getClientOriginalExtension();
         $req->file('web2img')->move(public_path('images/bukti'), $web2img);
-        }
+
+        $data = array('ipk'=>$ipk,'nilai_algo1'=>$algo1,'nilai_algo2'=>$algo2,'nilai_pbo1'=>$pbo1,'nilai_pbo2'=>$pbo2,'nilai_perweb'=>$web1,'nilai_pemweb'=>$web2,'motivasi'=>$motivasi,'motto'=>$motto,'url_ipk'=>$ipk,'url_algo1'=>$algo1img,'url_algo2'=>$algo2img,'url_pbo1'=>$pbo1img,'url_pbo2'=>$pbo2img,'url_perweb'=>$web1img,'url_pemweb'=>$web2img);
+        
+        $a = Session::get('login')->id;
+        DB::table('calon_aslab')->where('id',$a)->update($data);
+
+        return redirect('/');
     }
 
 

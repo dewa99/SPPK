@@ -3,6 +3,7 @@
 <head>
 <title>Register</title>
 @include('head')
+@dd(Session::get('login'))
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script type="text/javascript">
         $(document).ready(function() {
@@ -42,9 +43,10 @@
       <div class="shop_top">
 	     <div class="container">
 	     				@if(Session::get('login'))
-		     				@if(Session::get('login')->ipk)
-		     				<h3>Tunggu Kabar Selanjutnya yaa</h3>
-		     				@endif
+	     					<h3>{{Session::get('login')->ipk}}</h3>
+	     					@if(Session::get('login')->ipk)
+	     						<h3>Data anda telah masuk tunggu kabar selanjutnya ya</h3>
+	     					@endif
 	     				@else
 						<form action="/daftaraslab" method="post" enctype="multipart/form-data">
 							@csrf
@@ -76,7 +78,7 @@
 											<ul class="prosuct-qty">
 												<select name="algo2">
 													@foreach($nilai as $value)
-													<option>{{$value->name}}</option>
+													<option value="{{$value->id}}">{{$value->name}}</option>
 													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai algoritma 2 dari sister</i>
@@ -89,7 +91,7 @@
 											<ul class="prosuct-qty">
 												<select name="algo1">
 													@foreach($nilai as $value)
-													<option>{{$value->name}}</option>
+													<option value="{{$value->id}}">{{$value->name}}</option>
 													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai algoritma 1 dari sister</i>
@@ -102,7 +104,7 @@
 											<ul class="prosuct-qty">
 												<select name="pbo1">
 													@foreach($nilai as $value)
-													<option>{{$value->name}}</option>
+													<option value="{{$value->id}}">{{$value->name}}</option>
 													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai pbo 1 dari sister</i>
@@ -115,7 +117,7 @@
 											<ul class="prosuct-qty">
 												<select name="pbo2">
 													@foreach($nilai as $value)
-													<option>{{$value->name}}</option>
+													<option value="{{$value->id}}">{{$value->name}}</option>
 													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai pbo 2 dari sister</i>
@@ -128,7 +130,7 @@
 											<ul class="prosuct-qty">
 												<select name="web1">
 													@foreach($nilai as $value)
-													<option>{{$value->name}}</option>
+													<option value="{{$value->id}}">{{$value->name}}</option>
 													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai perancangan web dari sister</i>
@@ -141,7 +143,7 @@
 											<ul class="prosuct-qty">
 												<select name="web2">
 													@foreach($nilai as $value)
-													<option>{{$value->name}}</option>
+													<option value="{{$value->id}}">{{$value->name}}</option>
 													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai Pemrograman Web dari sister</i>
@@ -158,7 +160,7 @@
 											<ul class="prosuct-qty">
 												<select name="motivasi" style="width: 95%">
 													@foreach($alasan as $value)
-													<option>{{$value->name}}</option>
+													<option value="{{$value->id}}">{{$value->name}}</option>
 													@endforeach
 												</select>
 											</ul>
