@@ -19,7 +19,7 @@ class Perhitungan extends CI_Controller {
             for ($i=1; $i < sizeof($row) ; $i++) { 
                 $row_val = array_values($row);
                 $row_key = array_keys($row);
-                $row_new[$row_key[$i]] = ($row_val[$i] - $bobot['min'][$row_key[$i]]) / ($bobot['max'][$row_key[$i]] - $bobot['min'][$row_key[$i]]);
+                $row_new[$row_key[$i]] = ($row_val[$i] - $bobot['min'][$row_key[$i]]) / (($bobot['max'][$row_key[$i]] - $bobot['min'][$row_key[$i]]) == 0 ? 1 :($bobot['max'][$row_key[$i]] - $bobot['min'][$row_key[$i]]));
             }
             $nilai_utility[] = $row_new;
         }
