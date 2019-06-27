@@ -41,7 +41,13 @@
      <div class="main">
       <div class="shop_top">
 	     <div class="container">
-						<form> 
+	     				@if(Session::get('login'))
+		     				@if(Session::get('login')->ipk)
+		     				<h3>Tunggu Kabar Selanjutnya yaa</h3>
+		     				@endif
+	     				@else
+						<form action="/daftaraslab" method="post" enctype="multipart/form-data">
+							@csrf
 								<div class="register-top-grid">
 										<h2>Daftar Menjadi Asisten Lab Pemrograman Fasilkom UNEJ</h2>
 										<h4>Berikut adalah Syarat dan Ketentuan Untuk menjadi bagian dari Lab Pemrograman</h4>
@@ -52,16 +58,12 @@
 										<br>
 										<h3><strong>Data IPK</strong></h3>
 										<div>
-											<span>IPK<label>*</label></span>
+											<span>IPK<label>* penulisan decimal dengan titik</label></span>
 											<ul class="prosuct-qty">
-												<select>
-													<option>2.0 - 2.5</option>
-													<option>>2.5 - 3.0</option>
-													<option>>3.0 - 3.5</option>
-													<option>>3.5 - 4.0</option>
-												</select><br>
+												<input type="text" name="ipk">
+												<br>
 													<i style="font-size: 10px">upload screenshot ipk dari sister</i>
-													<input type="file" style="height: 1.3%;margin-top: 5px"></input>
+													<input type="file" style="height: 1.3%;margin-top: 5px" accept="image/*" name="ipkimg"></input>
 											</ul>
 										</div>
 										<div class="clear"> </div>
@@ -72,108 +74,106 @@
 										<div>
 											<span>Nilai Algoritma 2<label>*</label></span>
 											<ul class="prosuct-qty">
-												<select>
-													<option>A - AB</option>
-													<option>B - BC</option>
-													<option>C - CD</option>
-													<option>D - E</option>
+												<select name="algo2">
+													@foreach($nilai as $value)
+													<option>{{$value->name}}</option>
+													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai algoritma 2 dari sister</i>
-												<input type="file" style="margin-top: 5px"></input>
+												<input type="file" style="margin-top: 5px" accept="image/*" name="algo2img"></input>
 											</ul>
 										</div>
 
 										<div>
 											<span>Nilai Algoritma 1<label>*</label></span>
 											<ul class="prosuct-qty">
-												<select>
-													<option>A - AB</option>
-													<option>B - BC</option>
-													<option>C - CD</option>
-													<option>D - E</option>
+												<select name="algo1">
+													@foreach($nilai as $value)
+													<option>{{$value->name}}</option>
+													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai algoritma 1 dari sister</i>
-												<input type="file" style="height: 1.3%;margin-top: 5px"></input>
+												<input type="file" style="height: 1.3%;margin-top: 5px" accept="image/*" name="algo1img"></input>
 											</ul>
 										</div>
 										
 										<div>
 											<span>Nilai PBO 1<label>*</label></span>
 											<ul class="prosuct-qty">
-												<select>
-													<option>A - AB</option>
-													<option>B - BC</option>
-													<option>C - CD</option>
-													<option>D - E</option>
+												<select name="pbo1">
+													@foreach($nilai as $value)
+													<option>{{$value->name}}</option>
+													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai pbo 1 dari sister</i>
-												<input type="file" style="height: 1.3%;margin-top: 5px"></input>
+												<input type="file" style="height: 1.3%;margin-top: 5px" accept="image/*" name="pbo1img"></input>
 											</ul>
 										</div>
 
 										<div>
 											<span>Nilai PBO 2<label>*</label></span>
 											<ul class="prosuct-qty">
-												<select>
-													<option>A - AB</option>
-													<option>B - BC</option>
-													<option>C - CD</option>
-													<option>D - E</option>
+												<select name="pbo2">
+													@foreach($nilai as $value)
+													<option>{{$value->name}}</option>
+													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai pbo 2 dari sister</i>
-												<input type="file" style="height: 1.3%;margin-top: 5px"></input>
+												<input type="file" style="height: 1.3%;margin-top: 5px" v accept="image/*" name="pbo2img"></input>
 											</ul>
 										</div>
 
 										<div>
 											<span>Nilai Perancangan Web <label>*</label></span>
 											<ul class="prosuct-qty">
-												<select>
-													<option>A - AB</option>
-													<option>B - BC</option>
-													<option>C - CD</option>
-													<option>D - E</option>
+												<select name="web1">
+													@foreach($nilai as $value)
+													<option>{{$value->name}}</option>
+													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai perancangan web dari sister</i>
-												<input type="file" style="height: 1.3%;margin-top: 5px"></input>
+												<input type="file" style="height: 1.3%;margin-top: 5px" accept="image/*" name="web1img"></input>
 											</ul>
 										</div>
 
 										<div>
 											<span>Nilai Pemrograman Web<label>*</label></span>
 											<ul class="prosuct-qty">
-												<select>
-													<option>A - AB</option>
-													<option>B - BC</option>
-													<option>C - CD</option>
-													<option>D - E</option>
+												<select name="web2">
+													@foreach($nilai as $value)
+													<option>{{$value->name}}</option>
+													@endforeach
 												</select><br>
 												<i style="font-size: 10px">upload screenshot nilai Pemrograman Web dari sister</i>
-												<input type="file" style="height: 1.3%;margin-top: 5px"></input>
+												<input type="file" style="height: 1.3%;margin-top: 5px" accept="image/*" name="web2img"></input>
 											</ul>
 										</div>
 										<div class="clear"> </div>
 								</div>
 								<div class="clear"> </div>
 								<div class="register-bottom-grid">
-									<h3><strong>Motivasti dan Alasan</strong></h3>
+									<h3><strong>Motivasi dan Alasan</strong></h3>
 									<div>
-											<span>Nilai Pemrograman Web<label>*</label></span>
+											<span>Motivasi dan alasan<label>*</label></span>
 											<ul class="prosuct-qty">
-												<select>
-													<option>Mencari Ilmu</option>
-													<option>Ingin Jadi asdos</option>
-													<option>mencari tempat belajar</option>
-													<option>menambah teman</option>
-												</select><br>
-												<i style="font-size: 10px">upload screenshot nilai Pemrograman Web dari sister</i>
-												<input type="file" style="height: 1.3%;margin-top: 5px"></input>
+												<select name="motivasi" style="width: 95%">
+													@foreach($alasan as $value)
+													<option>{{$value->name}}</option>
+													@endforeach
+												</select>
+											</ul>
+										</div>
+									<div>
+											<span>Motto<label>*</label></span>
+											<ul class="prosuct-qty">
+												<input type="text" name="motto">
 											</ul>
 										</div>
 								</div>
 								<div class="clear"> </div>
 								<input type="submit" value="submit">
 						</form>
+						@endif
 					</div>
 		   </div>
 	  </div>

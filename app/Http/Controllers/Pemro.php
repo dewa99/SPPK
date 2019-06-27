@@ -51,4 +51,58 @@ class Pemro extends Controller
         }
         return redirect('/');
     }
+
+    function daftaraslab(Request $req){
+    
+        $this->validate($req,[
+            'motto' => 'required|min:30',
+            'ipkimg' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'algo1img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'algo2img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'pbo1img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'pbo2img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'web1img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'web2img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        $ipk = $req->input('ipk');
+        $algo1 = $req->input('algo1');
+        $algo2 = $req->input('algo2');
+        $pbo1 = $req->input('pbo1');
+        $pbo2 = $req->input('pbo2');
+        $web1 = $req->input('web1');
+        $web2 = $req->input('web2');
+        $motivasi = $req->input('motivasi');
+        $motto = $req->input('motto');
+
+        $data = array('ipk'=>$ipk,'nilai_algo1'=>$algo1,'nilai_algo2'=>$algo2,'nilai_pbo1'=>$pbo1,'nilai_pbo2'=>$pbo2,'nilai_perweb'=>$web1,'nilai_pemweb'=>$web2,'motivasi'=>$motivasi,'motto'=>$motto);
+
+        if(Session::get('login')->ipk){
+            echo '<script>alert("anda sudah pernah mengajukan")</script>';
+        }else{
+        DB::table('calon_aslab')->insert($data)->where('id',Session::get('login')->id);
+
+        $ipkimg = time().'.'.'ipk.'.$req->file('ipkimg')->getClientOriginalExtension();
+        $req->file('ipkimg')->move(public_path('images/bukti'), $ipkimg);
+        $algo1img = time().'.'.'algo1.'.$req->file('ipkimg')->getClientOriginalExtension();
+        $req->file('algo1img')->move(public_path('images/bukti'), $algo1img);
+        $algo2img = time().'.'.'algo2.'.$req->file('ipkimg')->getClientOriginalExtension();
+        $req->file('algo2img')->move(public_path('images/bukti'), $algo2img);
+        $pbo1img = time().'.'.'pbo1.'.$req->file('ipkimg')->getClientOriginalExtension();
+        $req->file('pbo1img')->move(public_path('images/bukti'), $pbo1img);
+        $pbo2img = time().'.'.'pbo2.'.$req->file('ipkimg')->getClientOriginalExtension();
+        $req->file('pbo2img')->move(public_path('images/bukti'), $pbo2img);
+        $web1img = time().'.'.'web1.'.$req->file('ipkimg')->getClientOriginalExtension();
+        $req->file('web1img')->move(public_path('images/bukti'), $web1img);
+        $web2img = time().'.'.'web2.'.$req->file('ipkimg')->getClientOriginalExtension();
+        $req->file('web2img')->move(public_path('images/bukti'), $web2img);
+        }
+    }
+
+
+
+    function logout(Request $request){
+        $request->session()->forget('login');
+        return redirect('/');
+    }
 }

@@ -48,8 +48,8 @@
 						  <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
 						  @if(Session::get('login'))
 						  	<ul class="nav" id="nav">
-						    	<li><a href="/register" style="transform: translate(-150px);">{{Session::get('login')->nama_lengkap}}</a></li>
-						    	<li><a href="/login">Logout</a></li>														
+						    	<li style="width: 250px;margin-left: -180px;"><a href="/register">{{Session::get('login')->nama_lengkap}}</a></li>
+						    	<li><a href="/logout">Logout</a></li>														
 								<div class="clear"></div>
 							</ul>
 						  @else
