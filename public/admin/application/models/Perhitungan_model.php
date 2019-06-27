@@ -58,6 +58,9 @@ class Perhitungan_model extends CI_Model {
         $max = array(null,null,null,null,null,null,null,null,null);
 
         foreach ($result as $data) {
+            if ($data['ipk'] == null) {
+                continue;
+            }
             $data['ipk'] = $this->get_ipk_bobot($data['ipk']);
             $min[0] = $min[0] == null ?  $data['ipk'] : ($min[0] < $data['ipk'] ? $min[0] : $data['ipk']);
             $min[1] = $min[1] == null ?  $data['nilai_algo1'] : ($min[1] < $data['nilai_algo1'] ? $min[1] : $data['nilai_algo1']);
