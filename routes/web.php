@@ -27,4 +27,7 @@ Route::get('/aslab', function () {
     return view('daftaraslab');
 });
 
+Route::post('/daftar', 'Pemro@daftar');
+Route::post('/login', 'Pemro@login');
+
 
