@@ -108,7 +108,7 @@
 							</ul>
                         </li>
 						<li>
-                            <a href="<?= site_url('admin/perhitungan') ?>">
+                            <a href="<?= site_url('perhitungan') ?>">
                                 <i class="fa fa-calculator"></i> <span>Hitung Keputusan</span>
                             </a>
                         </li>
