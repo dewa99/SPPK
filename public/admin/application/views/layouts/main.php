@@ -109,7 +109,7 @@
                         </li>
 						<li>
                             <a href="<?= site_url('admin/perhitungan') ?>">
-                                <i class="fa fa-square-root-alt"></i> <span>Hitung Keputusan</span>
+                                <i class="fa fa-calculator"></i> <span>Hitung Keputusan</span>
                             </a>
                         </li>
                         
@@ -154,7 +154,7 @@
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-user-check"></i> <span>Sikap</span>
+                                <i class="fa fa-handshake-o"></i> <span>Sikap</span>
                             </a>
                             <ul class="treeview-menu">
 								<li class="active">
