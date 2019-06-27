@@ -25,9 +25,7 @@ Route::get('/register', function () {
 
 Route::get('/aslab', function () {
 	if(Session::get('login')){
-		if(Session::get('login')->ipk){
 			return view('daftaraslab');
-		}
 	}
 	else{
 	$nilai=DB::table('nilai')->select('name')->get();
