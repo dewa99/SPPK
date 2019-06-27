@@ -154,7 +154,7 @@
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-smile"></i> <span>Sikap</span>
+                                <i class="fa fa-user-check"></i> <span>Sikap</span>
                             </a>
                             <ul class="treeview-menu">
 								<li class="active">
