@@ -7,7 +7,7 @@ $(document).ready(function() {
 	
 	if( $('.has-datepicker').length )
 	{
-		$('.has-datepicker').datetimepicker({format: 'DD/MM/YYYY'});
+		$('.has-datepicker').datetimepicker({format: 'YYYY-MM-DD'});
 	} 
 
 });
